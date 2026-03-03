@@ -13,6 +13,24 @@ body {
     overflow-x: hidden;
 }
 
+/* ── GRIM TEXTURE: fixed behind everything, tinted deep red ── */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url("grim.png") center / cover no-repeat;
+    mix-blend-mode: soft-light;
+    opacity: 0.59;
+filter: sepia(1) hue-rotate(300deg) brightness(0.65);
+}
+
 .header-content h1,
 .subtitle,
 .intro-box h2,
@@ -57,7 +75,7 @@ body::before {
     position: relative;
     height: 65vh;
     background:
-        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(5,0,0,1)),
+        linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(5,0,0,0.85) 70%, #050000 100%),
         url("fnaf4header.webp") center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -452,39 +470,6 @@ body::before {
     100% { transform: scale(1.02) translate(1%, -1%); opacity: 0.45; }
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 60;
-    background:
-        repeating-linear-gradient(120deg, rgba(60,0,0,0.15) 0px, rgba(60,0,0,0.15) 2px, transparent 2px, transparent 80px),
-        repeating-linear-gradient(-120deg, rgba(40,0,0,0.15) 0px, rgba(40,0,0,0.15) 2px, transparent 2px, transparent 100px);
-    mix-blend-mode: multiply;
-    animation: veinShift 18s infinite linear, dripShift 30s infinite ease-in-out;
-}
-
-@keyframes veinShift {
-    from { background-position: 0 0, 0 0; }
-    to { background-position: 200px 300px, -200px -150px; }
-}
-
-html {
-    animation: darkPulse 12s infinite ease-in-out;
-}
-
-@keyframes darkPulse {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(0.92); }
-}
-
-@keyframes dripShift {
-    0% { background-position: 0 0; }
-    50% { background-position: 0 40px; }
-    100% { background-position: 0 0; }
-}
-
 #intro-overlay {
     position: fixed;
     inset: 0;
@@ -493,7 +478,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadeOutOverlay 1s ease-in forwards 4s; 
+    animation: fadeOutOverlay 1s ease-in forwards 2.5s; 
     pointer-events: none;
 }
 
@@ -512,8 +497,8 @@ html {
     filter: blur(10px);
     
     animation: 
-        fnafTextIn 4s ease-out 0.5s forwards, 
-        nightmareFlicker 0.2s infinite 0.5s;
+        fnafTextIn 2.5s ease-out 0.3s forwards, 
+        nightmareFlicker 0.2s infinite 0.3s;
     
     transform: scale(0.9);
 }
@@ -529,10 +514,15 @@ html {
         opacity: 0.8;
         filter: blur(2px);
     }
-    70% {
+  70% {
         opacity: 1;
         filter: blur(0px);
-        transform: scale(1.1); 
+        transform: scale(1.1);
+    }
+    88% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1.1);
     }
     100% {
         opacity: 0;
@@ -544,27 +534,6 @@ html {
 @keyframes fadeOutOverlay {
     to { opacity: 0; visibility: hidden; }
 }
-/* ── GRIM TEXTURE ── */
-.fnaf4-content::before,
-.characters-section::before,
-.play-section::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: url("grim.png") center / cover no-repeat;
-    mix-blend-mode: soft-light;
-    opacity: 0.18;
-    filter: sepia(1) hue-rotate(300deg);
-}
-
-.fnaf4-content {
-    position: relative;
-}
-.characters-section {
-    position: relative;
-}
-.play-section {
-    position: relative;
-}
+.fnaf4-content { position: relative; }
+.characters-section { position: relative; }
+.play-section { position: relative; }
