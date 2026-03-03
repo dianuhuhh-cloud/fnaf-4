@@ -570,3 +570,28 @@ html {
 .play-section {
     position: relative;
 }
+
+/* ── GRIM TEXTURE ── */
+.fnaf4-content::before,
+.characters-section::before,
+.play-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: url("../images/grim.png") center / cover no-repeat;
+    mix-blend-mode: soft-light;
+    opacity: 0.18;
+    filter: sepia(1) hue-rotate(300deg);
+}
+
+.fnaf4-content {
+    position: relative;
+}
+.characters-section {
+    position: relative;
+}
+.play-section {
+    position: relative;
+}
