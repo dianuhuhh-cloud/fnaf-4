@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Stellar";
-    src: url("../fonts/stellar.ttf") format("truetype");
+    src: url("stellar.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -58,7 +58,7 @@ body::before {
     height: 65vh;
     background:
         linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(5,0,0,1)),
-        url("../images/fnaf4header.webp") center/cover no-repeat;
+        url("fnaf4header.webp") center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -543,4 +543,5 @@ html {
 
 @keyframes fadeOutOverlay {
     to { opacity: 0; visibility: hidden; }
+
 }
